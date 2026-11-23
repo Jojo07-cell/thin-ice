@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f3f8fa">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Thin Ice | The sea ice is disappearing</title>
+<meta name="description" content="A student website about sea ice: how much the Arctic has lost since 1979, why white ice keeps the planet cool, what the dangers are, and who lives on it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+<!-- DRAWINGS: each animal is drawn once here, then reused with <use href="#..."> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="bearShape">
+      <ellipse cx="62" cy="44" rx="44" ry="21"/>
+      <circle cx="88" cy="36" r="16"/>
+      <ellipse cx="111" cy="35" rx="15" ry="11.5"/>
+      <ellipse cx="125" cy="39" rx="9" ry="6"/>
+      <circle cx="104" cy="25" r="4.5"/>
+      <rect x="26" y="52" width="12" height="24" rx="5"/>
+      <rect x="44" y="54" width="11" height="22" rx="5"/>
+      <rect x="80" y="52" width="12" height="24" rx="5"/>
+      <rect x="96" y="54" width="11" height="22" rx="5"/>
+      <circle cx="19" cy="40" r="4"/>
+    </g>
+    <symbol id="bear" viewBox="0 0 140 80">
+      <use href="#bearShape" fill="#0b1f2c" stroke="#0b1f2c" stroke-width="4.4" stroke-linejoin="round"/>
+      <use href="#bearShape" fill="#fbfaf4"/>
+      <circle cx="115" cy="32" r="1.9" fill="#0b1f2c"/>
+      <circle cx="132.5" cy="37" r="2.8" fill="#0b1f2c"/>
+    </symbol>
+    <symbol id="bearHead" viewBox="0 0 60 40">
+      <g fill="#0b1f2c" stroke="#0b1f2c" stroke-width="4.4" stroke-linejoin="round">
+        <ellipse cx="26" cy="22" rx="16" ry="12"/><ellipse cx="41" cy="26" rx="9" ry="6"/><circle cx="19" cy="11" r="4.5"/>
+      </g>
+      <g fill="#fbfaf4"><ellipse cx="26" cy="22" rx="16" ry="12"/><ellipse cx="41" cy="26" rx="9" ry="6"/><circle cx="19" cy="11" r="4.5"/></g>
+      <circle cx="30" cy="19" r="1.9" fill="#0b1f2c"/><circle cx="48.5" cy="24" r="2.6" fill="#0b1f2c"/>
+    </symbol>
+    <symbol id="seal" viewBox="0 0 120 60">
+      <path d="M8 40 Q26 16 68 20 Q100 22 108 33 Q113 42 100 46 Q60 54 20 48 Q6 46 8 40Z" fill="#9fb3bd" stroke="#0b1f2c" stroke-width="2.2"/>
+      <path d="M10 40 L0 29 L3 46 Z" fill="#9fb3bd" stroke="#0b1f2c" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M62 44 Q66 54 56 54" fill="none" stroke="#0b1f2c" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="98" cy="31" r="2.2" fill="#0b1f2c"/><circle cx="108" cy="36" r="1.8" fill="#0b1f2c"/>
+      <circle cx="40" cy="30" r="2" fill="#7b929d"/><circle cx="54" cy="26" r="1.6" fill="#7b929d"/><circle cx="76" cy="28" r="2" fill="#7b929d"/>
+    </symbol>
+    <symbol id="walrus" viewBox="0 0 120 72">
+      <ellipse cx="54" cy="42" rx="46" ry="24" fill="#c39a7b" stroke="#0b1f2c" stroke-width="2.2"/>
+      <circle cx="98" cy="34" r="17" fill="#c39a7b" stroke="#0b1f2c" stroke-width="2.2"/>
+      <path d="M95 46 L93 68 M105 46 L107 68" stroke="#fbfaf4" stroke-width="4.5" stroke-linecap="round"/>
+      <path d="M95 46 L93 68 M105 46 L107 68" stroke="#0b1f2c" stroke-width="1" stroke-linecap="round" fill="none" opacity=".4"/>
+      <ellipse cx="100" cy="42" rx="11" ry="6" fill="#d9b79c" stroke="#0b1f2c" stroke-width="1.6"/>
+      <circle cx="96" cy="27" r="2" fill="#0b1f2c"/>
+      <path d="M30 60 L22 68 M70 62 L76 69" stroke="#0b1f2c" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="fish" viewBox="0 0 120 50">
+      <ellipse cx="62" cy="25" rx="42" ry="13" fill="#8fb3c4" stroke="#0b1f2c" stroke-width="2.2"/>
+      <path d="M22 25 L4 12 L6 38 Z" fill="#8fb3c4" stroke="#0b1f2c" stroke-width="2.2" stroke-linejoin="round"/>
+      <circle cx="90" cy="22" r="2.4" fill="#0b1f2c"/>
+      <path d="M80 15 Q76 25 80 35" fill="none" stroke="#0b1f2c" stroke-width="1.6"/>
+    </symbol>
+    <symbol id="algae" viewBox="0 0 120 64">
+      <rect x="2" y="2" width="116" height="16" rx="4" fill="#fbfaf4" stroke="#0b1f2c" stroke-width="2.2"/>
+      <g fill="none" stroke="#5f9b6a" stroke-width="3" stroke-linecap="round">
+        <path d="M18 18 Q12 30 18 42 Q24 52 18 60"/><path d="M42 18 Q48 28 42 38"/><path d="M62 18 Q56 32 62 46 Q66 54 62 58"/><path d="M84 18 Q90 30 84 40"/><path d="M102 18 Q96 28 102 40 Q106 48 102 52"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="topline">Student project — figures are rounded. <a href="#sources">Sources</a></div>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="wordmark" href="#top">Thin Ice</a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Open menu"><span></span><span></span></button>
+    <nav class="main-nav" id="mainNav" aria-label="Sections">
+      <a href="#map">The map</a>
+      <a href="#mirror">The mirror</a>
+      <a href="#loop">The dangers</a>
+      <a href="#life">Life</a>
+      <a href="#future">The future</a>
+    </nav>
+    <span class="gauge" aria-hidden="true"><span id="gaugeVal">100</span>% ice</span>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- 001 HERO: the ice sheet you can crack, with a bear on a floe -->
+<section class="hero" id="top">
+  <canvas class="cracks" id="cracks" aria-hidden="true"></canvas>
+  <div class="snow" id="snow" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow">Nº 001 — 85° North, September</p>
+      <h1 class="hero-word" aria-label="Thin Ice"><span class="hw" style="--i:0">Thin</span> <span class="hw" style="--i:1"><em>Ice</em></span></h1>
+      <p class="hero-lede" id="heroLede">At the top of the world, the ocean wears a white lid of frozen sea water: the sea ice. It cools the planet, carries polar bears and grows back every winter. Every summer, less of it survives. <b>Click the ice to test it.</b></p>
+      <p class="crack-count" id="crackCount" aria-live="polite"></p>
+    </div>
+    <svg class="floe-scene" id="floeScene" viewBox="0 0 360 230" aria-hidden="true">
+      <g class="floe-bob">
+        <g id="floeRight" class="floe-right">
+          <path d="M196 150 L232 128 L300 132 L338 150 L322 170 L210 172 Z" fill="#fbfdfe" stroke="#9ccbe0" stroke-width="2"/>
+          <path d="M210 172 L322 170 L318 182 L214 184 Z" fill="#b9dfee"/>
+        </g>
+        <g id="floeLeft" class="floe-left">
+          <path d="M22 152 L64 126 L150 122 L198 150 L184 172 L40 174 Z" fill="#fbfdfe" stroke="#9ccbe0" stroke-width="2"/>
+          <path d="M40 174 L184 172 L180 186 L44 188 Z" fill="#b9dfee"/>
+          <use href="#bear" x="58" y="68" width="118" height="68" class="hero-bear"/>
+        </g>
+      </g>
+      <path class="wave w1" d="M0 186 Q20 180 40 186 T80 186 T120 186 T160 186 T200 186 T240 186 T280 186 T320 186 T360 186"/>
+      <path class="wave w2" d="M0 200 Q20 194 40 200 T80 200 T120 200 T160 200 T200 200 T240 200 T280 200 T320 200 T360 200"/>
+    </svg>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">Scroll to melt ↓</div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track">
+  <span>−12% per decade</span><i></i><span>Record low: 2012</span><i></i><span>Warming 4× faster</span><i></i><span>85% of sunlight reflected</span><i></i><span>−1.8 °C</span><i></i><span>Ice-free before 2050</span><i></i>
+  <span>−12% per decade</span><i></i><span>Record low: 2012</span><i></i><span>Warming 4× faster</span><i></i><span>85% of sunlight reflected</span><i></i><span>−1.8 °C</span><i></i><span>Ice-free before 2050</span><i></i>
+</div></div>
+
+<!-- 002 MAP -->
+<section class="section" id="map">
+  <div class="container map-grid">
+    <div>
+      <p class="eyebrow rv">Nº 002 — The map</p>
+      <h2 class="h2 rv">Forty-eight <em>Septembers</em>.</h2>
+      <p class="tldr rv"><b>In short</b> The white shape is the ice. Every September there is less of it than in 1979.</p>
+      <p class="section-lede rv">Every September, at the end of summer, the Arctic ice is at its smallest. Satellites have measured it since 1979. Drag through the years: the white area is drawn to scale with the real ice. Watch the bear.</p>
+      <div class="year-ctrl rv">
+        <label for="year" class="label">Year <b id="yearOut">1979</b></label>
+        <input type="range" id="year" min="0" max="14" step="1" value="0" aria-valuetext="1979">
+        <div class="ticks"><span>1979</span><span>2026</span></div>
+      </div>
+      <dl class="stats rv">
+        <div><dt>Ice in September</dt><dd><span id="extOut">7.1</span> <small>million km²</small></dd></div>
+        <div><dt>Lost since 1979</dt><dd class="heat"><span id="lostOut">0</span>%</dd></div>
+        <div><dt>Missing area</dt><dd><span id="spainOut">0</span> <small>× Spain</small></dd></div>
+      </dl>
+      <p class="note" id="yearNote">1979: the first full year of satellite records.</p>
+      <figure class="trend rv">
+        <svg viewBox="0 0 520 200" id="trendSvg" role="img" aria-label="Line chart of September sea ice for every year from 1979 to 2026. Single years go up and down, but the trend line goes steadily down."></svg>
+        <figcaption><span class="key line-key"></span> Each September <span class="key trend-key"></span> The trend</figcaption>
+        <p class="trend-line">Some summers are better than others. <em>The trend is not.</em></p>
+      </figure>
+    </div>
+    <figure class="arctic rv">
+      <svg viewBox="0 0 400 400" id="arcticSvg" role="img" aria-label="Illustration of the Arctic Ocean seen from above, with the September sea ice drawn to scale and a polar bear">
+        <defs>
+          <clipPath id="oceanClip"><circle cx="200" cy="200" r="168"/></clipPath>
+          <pattern id="ghost" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" class="ghost-line"/></pattern>
+        </defs>
+        <circle cx="200" cy="200" r="190" class="land"/>
+        <circle cx="200" cy="200" r="168" class="ocean"/>
+        <g clip-path="url(#oceanClip)">
+          <path id="ice1979" class="ice-ghost"/>
+          <path id="iceNow" class="ice-now"/>
+        </g>
+        <circle cx="200" cy="200" r="2.5" class="pole"/>
+        <text x="206" y="196" class="map-label">North Pole</text>
+        <text x="200" y="26" class="map-label" text-anchor="middle">EURASIA</text>
+        <text x="200" y="384" class="map-label" text-anchor="middle">NORTH AMERICA</text>
+        <g id="mapBear" transform="translate(150 96)">
+          <g class="on-ice"><use href="#bear" x="-24" y="-24" width="48" height="28"/></g>
+          <g class="swimming">
+            <ellipse class="ripple r1" cx="0" cy="2" rx="16" ry="5"/>
+            <ellipse class="ripple r2" cx="0" cy="2" rx="16" ry="5"/>
+            <use href="#bearHead" x="-15" y="-14" width="30" height="20"/>
+          </g>
+        </g>
+      </svg>
+      <figcaption><span class="key ghost"></span> Ice in 1979 <span class="key now"></span> Ice in the year you chose</figcaption>
+      <p class="bear-note" id="bearNote" aria-live="polite">The bear is on the ice. It can hunt seals.</p>
+    </figure>
+  </div>
+</section>
+
+<!-- 003 MIRROR -->
+<section class="section" id="mirror">
+  <div class="container mirror-grid">
+    <div>
+      <p class="eyebrow rv">Nº 003 — The mirror</p>
+      <h2 class="h2 rv">White <em>sends the sun</em> back.</h2>
+      <p class="tldr rv"><b>In short</b> Ice is a mirror that keeps the Arctic cool. Open ocean is a dark sponge that soaks up heat.</p>
+      <p class="section-lede rv">Snow-covered ice reflects about 85% of the sunlight that hits it. Dark open ocean absorbs more than 90%. Slide from ice to ocean and watch where the sunlight goes.</p>
+      <div class="year-ctrl rv">
+        <label for="cover" class="label">Ice cover <b id="coverOut">100%</b></label>
+        <input type="range" id="cover" min="0" max="100" step="1" value="100" aria-valuetext="100% ice">
+        <div class="ticks"><span>Open ocean</span><span>All ice</span></div>
+      </div>
+    </div>
+    <figure class="mirror-fig rv">
+      <svg viewBox="0 0 400 300" id="mirrorSvg" role="img" aria-label="Sunlight hitting ice and ocean">
+        <g class="sun-g"><circle cx="60" cy="56" r="30" class="sun"/><circle cx="60" cy="56" r="42" class="sun-halo"/></g>
+        <g id="rays"></g>
+        <rect x="0" y="230" width="400" height="70" class="water"/>
+        <rect x="0" y="230" width="400" height="70" class="water-heat" id="waterHeat"/>
+        <rect x="0" y="222" width="400" height="16" id="iceStrip" class="ice-strip"/>
+        <use href="#bear" id="mirrorBear" x="20" y="186" width="62" height="36"/>
+      </svg>
+      <div class="meter">
+        <div><span class="label">Sent back to space</span><b id="reflOut">85%</b></div>
+        <div><span class="label">Kept as heat</span><b class="heat" id="absOut">15%</b></div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- 004 LOOP + DANGERS -->
+<section class="section" id="loop">
+  <div class="container">
+    <p class="eyebrow rv">Nº 004 — The dangers</p>
+    <h2 class="h2 rv">Melting <em>makes more</em> melting.</h2>
+    <p class="tldr rv"><b>In short</b> Less ice means more heat, and more heat means less ice. It feeds itself.</p>
+    <div class="loop-grid">
+      <figure class="loop-fig rv">
+        <svg viewBox="0 0 400 400" id="loopSvg" role="img" aria-label="A loop of four steps: the air warms, the ice melts, dark water appears, the water absorbs more heat, and the air warms again.">
+          <circle cx="200" cy="200" r="140" class="loop-ring"/>
+          <path class="loop-arrow" d="M200 60 A140 140 0 0 1 340 200"/>
+          <path class="loop-arrow" d="M340 200 A140 140 0 0 1 200 340"/>
+          <path class="loop-arrow" d="M200 340 A140 140 0 0 1 60 200"/>
+          <path class="loop-arrow" d="M60 200 A140 140 0 0 1 200 60"/>
+          <g id="loopNodes"></g>
+          <g id="loopDot"><circle r="9" class="loop-dot"/></g>
+          <text x="200" y="194" text-anchor="middle" class="loop-center" id="loopTurn">Turn 1</text>
+          <text x="200" y="220" text-anchor="middle" class="loop-center small">each turn is worse</text>
+        </svg>
+      </figure>
+      <ol class="loop-steps" id="loopSteps">
+        <li><b>The air gets warmer.</b> Greenhouse gases trap more heat around the planet.</li>
+        <li><b>The ice melts.</b> Summers last longer and more ice disappears.</li>
+        <li><b>Dark water appears.</b> Where the white mirror was, there is now open ocean.</li>
+        <li><b>The ocean soaks up heat.</b> It warms the air and the water, so even more ice melts next year.</li>
+      </ol>
+    </div>
+
+    <h3 class="sub rv">What it puts at risk</h3>
+    <ul class="dangers">
+      <li class="rv"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="19" y="4" width="10" height="28" rx="5"/><circle cx="24" cy="36" r="8"/><path d="M24 14 V34" class="danger-fill"/></svg><b>A hotter planet</b><span>The Arctic is warming about four times faster than the rest of the world, and that extra heat adds to global warming.</span></li>
+      <li class="rv"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 18 H22 L26 26 L22 32 H4"/><path d="M30 22 Q36 16 42 22 M30 30 Q36 24 42 30 M30 38 Q36 32 42 38"/></svg><b>Coasts falling into the sea</b><span>Sea ice protects Arctic shores from waves. Without it, storms eat away the coast. Some villages in Alaska are having to move.</span></li>
+      <li class="rv"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 28 H44"/><path d="M10 28 V40 M18 28 V36 M26 28 V42 M34 28 V37"/><path d="M14 20 Q18 12 22 20 M28 18 Q32 10 36 18"/></svg><b>Thawing ground</b><span>A warmer Arctic thaws the frozen ground on land, the permafrost. It can release more greenhouse gases.</span></li>
+      <li class="rv"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 26 Q4 26 6 18 Q8 11 16 13 Q19 5 28 7 Q36 8 36 16 Q44 16 43 23 Q42 27 36 26 Z"/><path d="M22 30 L17 39 H24 L20 46"/></svg><b>Weather further south</b><span>Scientists are studying whether a warmer Arctic makes some storms, heatwaves and cold snaps further south more likely.</span></li>
+      <li class="rv"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#bear" x="2" y="12" width="44" height="26"/></svg><b>Arctic wildlife</b><span>Polar bears, seals and walruses need the ice to hunt, rest and raise their young. See below.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 005 GLASS -->
+<section class="section" id="glass">
+  <div class="container glass-grid">
+    <figure class="glass-fig rv">
+      <svg viewBox="0 -70 260 390" role="img" aria-label="A glass of water with floating ice, and a block of land ice above it" id="glassSvg">
+        <g id="landCube" class="land-cube"><rect x="150" y="-60" width="46" height="40" rx="6"/><text x="173" y="-35" text-anchor="middle" class="cube-label">LAND</text></g>
+        <path d="M40 40 L60 300 L200 300 L220 40" class="glass-line"/>
+        <clipPath id="glassClip"><path d="M40 40 L60 300 L200 300 L220 40 Z"/></clipPath>
+        <g clip-path="url(#glassClip)">
+          <rect x="0" id="waterRect" y="150" width="260" height="200" class="glass-water"/>
+          <g id="seaCube" class="sea-cube"><rect x="85" y="130" width="60" height="50" rx="8"/><text x="115" y="160" text-anchor="middle" class="cube-label">SEA</text></g>
+        </g>
+        <line x1="20" x2="240" id="levelLine" y1="150" y2="150" class="level"/>
+        <text x="238" id="levelText" y="144" text-anchor="end" class="map-label">sea level</text>
+      </svg>
+    </figure>
+    <div>
+      <p class="eyebrow rv">Nº 005 — The glass</p>
+      <h2 class="h2 rv">It does not <em>flood</em>. It does something else.</h2>
+      <p class="tldr rv"><b>In short</b> Melting sea ice does not raise the sea. Melting ice from land does.</p>
+      <p class="section-lede rv">Sea ice is frozen sea water that already floats. When it melts, the sea level stays the same, like an ice cube in a glass. Ice from land, like Greenland’s ice sheet, is different: when it slides into the ocean, the water rises. Try both.</p>
+      <div class="btn-row rv">
+        <button class="btn" id="meltBtn">1. Melt the sea ice</button>
+        <button class="btn ghost" id="dropBtn">2. Add ice from land</button>
+        <button class="link" id="resetGlass">Reset</button>
+      </div>
+      <p class="note" id="glassNote" aria-live="polite">The dashed line is the sea level.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 006 OLD ICE -->
+<section class="section" id="old">
+  <div class="container old-grid">
+    <div>
+      <p class="eyebrow rv">Nº 006 — Old ice</p>
+      <h2 class="h2 rv">Younger, <em>thinner</em>, weaker.</h2>
+      <p class="tldr rv"><b>In short</b> The ice is now younger and thinner, so it breaks and melts more easily.</p>
+      <p class="section-lede rv">Ice that survives several summers grows thick and strong, up to 4 metres. Young ice, made in one winter, is often only 1 to 2 metres thick. The Arctic has lost most of its old ice.</p>
+      <div class="age-bars">
+        <div class="age-row rv">
+          <span class="label">March 1985</span>
+          <div class="bar"><span class="old" style="--w:33%"></span></div>
+          <b>About 1 in 3</b>
+        </div>
+        <div class="age-row rv">
+          <span class="label">March, recent years</span>
+          <div class="bar"><span class="old" style="--w:4%"></span></div>
+          <b class="heat">Fewer than 1 in 20</b>
+        </div>
+        <p class="note rv"><span class="key old-key"></span> Share of the Arctic ice pack older than four years.</p>
+      </div>
+    </div>
+    <figure class="thick-fig rv">
+      <svg viewBox="0 0 400 260" role="img" aria-label="Two ice floes side by side: old ice up to 4 metres thick, young ice about 1.5 metres thick, each with a polar bear for scale.">
+        <rect x="0" y="120" width="400" height="140" class="thick-water"/>
+        <g class="thick-old">
+          <rect x="20" y="96" width="160" height="130" rx="6" class="thick-ice"/>
+          <use href="#bear" x="58" y="52" width="80" height="46"/>
+          <text x="100" y="250" text-anchor="middle" class="thick-label">OLD ICE · up to 4 m</text>
+        </g>
+        <g class="thick-young">
+          <rect x="220" y="108" width="160" height="50" rx="6" class="thick-ice young"/>
+          <use href="#bear" x="258" y="64" width="80" height="46" class="wobble"/>
+          <text x="300" y="250" text-anchor="middle" class="thick-label">YOUNG ICE · 1 to 2 m</text>
+        </g>
+        <line x1="0" x2="400" y1="120" y2="120" class="thick-line"/>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<!-- 007 LIFE -->
+<section class="section" id="life">
+  <div class="container">
+    <p class="eyebrow rv">Nº 007 — Who lives on the ice</p>
+    <h2 class="h2 rv">A floor, a roof, <em>a pantry</em>.</h2>
+    <p class="tldr rv"><b>In short</b> No ice, no hunting ground, no safe place for the young.</p>
+    <p class="section-lede rv">For many animals, sea ice is not scenery. It is where they hunt, rest and raise their young. Click a card to see what changes when the ice goes.</p>
+    <ul class="cards" id="cards"></ul>
+  </div>
+</section>
+
+<!-- 008 FUTURE -->
+<section class="section" id="future">
+  <div class="container">
+    <p class="eyebrow rv">Nº 008 — The first blue summer</p>
+    <h2 class="h2 rv">An Arctic <em>without</em> ice.</h2>
+    <p class="tldr rv"><b>In short</b> Soon, some summers will have almost no ice left around the North Pole.</p>
+    <p class="section-lede rv">Scientists call the Arctic “ice-free” when less than 1 million km² is left, mostly along the coasts of Greenland and Canada. The IPCC says this will likely happen in September at least once before 2050, whatever we do now. What we do decides how often it happens after that.</p>
+    <div class="future-bars">
+      <div class="fb rv"><span class="label">1979</span><div class="bar"><span style="--w:100%"></span></div><b>7.1</b></div>
+      <div class="fb rv"><span class="label">2026</span><div class="bar"><span style="--w:68%"></span></div><b>4.8</b></div>
+      <div class="fb rv"><span class="label">Ice-free</span><div class="bar"><span class="heat-bar" style="--w:14%"></span></div><b class="heat">&lt; 1</b></div>
+      <p class="note rv">September sea ice, million km².</p>
+    </div>
+  </div>
+</section>
+
+<!-- 009 ACT -->
+<section class="section" id="act">
+  <div class="container">
+    <p class="eyebrow rv">Nº 009 — What we can do</p>
+    <h2 class="h2 rv">Every tenth <em>of a degree</em> counts.</h2>
+    <p class="tldr rv"><b>In short</b> Sea ice can grow back if the planet stops warming. Less CO₂ means more ice.</p>
+    <p class="section-lede rv">Sea ice grows back every winter. Unlike a glacier, it can recover in a few years if the planet stops warming. Tick what you could do this year.</p>
+    <ul class="actions" id="actions"></ul>
+    <p class="act-total rv" aria-live="polite"><span id="actCount">0</span> of <span id="actMax">6</span> — <span id="actMsg">Start with one.</span></p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer" id="sources">
+  <div class="container footer-grid">
+    <div>
+      <p class="label">Sources</p>
+      <ul class="src">
+        <li>National Snow and Ice Data Center (NSIDC) — Sea Ice Index, September extent 1979–2026</li>
+        <li>IPCC, Sixth Assessment Report (2021) — ice-free Arctic before 2050, permafrost</li>
+        <li>Rantanen et al. (2022), Communications Earth &amp; Environment — Arctic warming four times faster</li>
+        <li>NSIDC &amp; NASA — sea ice age, albedo, thickness</li>
+        <li>IUCN Polar Bear Specialist Group — polar bears and sea ice</li>
+        <li>NOAA Arctic Report Card — coastal erosion, wildlife</li>
+      </ul>
+    </div>
+    <div>
+      <p class="label">About</p>
+      <p>Thin Ice is a student project. Figures are rounded. The map is an illustration: the ice area is to scale, the shape is not the real coastline. All drawings are original.</p>
+    </div>
+    <div>
+      <p class="label">Find out more</p>
+      <p><a href="https://nsidc.org/arcticseaicenews/">NSIDC Arctic Sea Ice News</a><br><a href="https://climate.nasa.gov/">NASA Climate</a></p>
+    </div>
+  </div>
+  <p class="container copy">© 2026 Thin Ice — a student project.</p>
+</footer>
+
+<script src="script.js?v=4"></script>
+</body>
+</html>
